@@ -8,16 +8,21 @@ body{
 .vertial-container{
     background-color: red;
     height: 700px;
-    
+    grid-column: 1;
 
 }
+  
+
 .horizontal-container{
     
     width: 1050px;
+    grid-column: 2;
     
 }
 .containers{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
 }
 ul li a{
     text-decoration: none;
@@ -34,6 +39,8 @@ ul li{
 .navigation{
     padding-top: 30px;
     padding-left: -65px;
+    display: flex;
+  justify-content: space-between;
 }
 /*email button must be fixed*/
 
@@ -58,6 +65,7 @@ ul li{
     width: 100%; /* Make the image fill the container */
     height: auto; /* Maintain the image aspect ratio */
     display: block; /* Remove any extra space below the image */
+    max-width: 300px;
 }
 .socials {
     margin-left: 20px;
@@ -115,20 +123,28 @@ button {
     padding-top: 20px;
 }
 
- @media only screen and (max-width:600px) and (orientation:landscape){
-        .containers{
-            width: 100%;
+
+
+    @media only screen and (max-width: 768px) {
+        .horizontal-container {
+          width: 100%;
+          padding: 20px;
         }
-
-    }
-
-
-@media only screen and (max-width:600px) and (orientation:potrait){
-        .containers{
-            width: 100%;
+        .container {
+          width: 100%;
+          margin: 20px;
         }
+      }
 
-    }
+      @media only screen and (max-width: 480px) {
+        .horizontal-container {
+          grid-column: 1;
+        }
+        .container {
+          max-width: 100%;
+        }
+      }
+      
 
 
 

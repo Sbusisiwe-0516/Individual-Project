@@ -31,9 +31,9 @@
         
         </ul>
         <div class="socials">
-            <i class="fa-brands fa-linkedin" style="color: black;"></i>
-            <i class="fa-brands fa-square-github" style="color: black;"></i>
-            <i class="fa-brands fa-square-facebook" style="color: black;"></i>
+            <a href="https://www.linkedin.com/in/tshifhiwa-sibusisiwe-rambau-837397225/"><i class="fa-brands fa-linkedin" style="color: black;"></i></a>
+            <a href="https://github.com/Sbusisiwe-0516/Individual-Project/tree/master"><i class="fa-brands fa-square-github" style="color: black;"></i></a>
+        <a href="https://www.facebook.com/"><i class="fa-brands fa-square-facebook" style="color: black;"></i></a>
     </div>
        
         </div>
@@ -47,66 +47,9 @@
        
         <!--input type="button" name="Email" value="Email Me">
         </div>-->
-        <div class="get-location">
-        <button onclick="getLocation()">Get Location</button>
-    <p id="location"></p>
-    <p id="weather"></p>
-</div>
-    <script>
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition, showError);
-            } else {
-                document.getElementById("location").innerHTML = "Geolocation is not supported by this browser.";
-            }
-        }
-
-        function showPosition(position) {
-            const lat = position.coords.latitude;
-            const lon = position.coords.longitude;
-            document.getElementById("location").innerHTML = `Latitude: ${lat}, Longitude: ${lon}`;
-            getWeather(lat, lon);
-        }
-
-        function showError(error) {
-            switch(error.code) {
-                case error.PERMISSION_DENIED:
-                    document.getElementById("location").innerHTML = "User denied the request for Geolocation.";
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    document.getElementById("location").innerHTML = "Location information is unavailable.";
-                    break;
-                case error.TIMEOUT:
-                    document.getElementById("location").innerHTML = "The request to get user location timed out.";
-                    break;
-                case error.UNKNOWN_ERROR:
-                    document.getElementById("location").innerHTML = "An unknown error occurred.";
-                    break;
-            }
-        }
-    </script>
-    
-    <script>
-        function getWeather(lat, lon) {
-            const apiKey = '62a5721cd0edbb162ceb558b4d425922'; // Replace with your API key
-            const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-    
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    const temp = data.main.temp;
-                    const weatherDescription = data.weather[0].description;
-                    document.getElementById("weather").innerHTML = `Temperature: ${temp}°C, Weather: ${weatherDescription}`;
-                })
-                .catch(error => {
-                    document.getElementById("weather").innerHTML = "Unable to retrieve weather data.";
-                    console.error("Error fetching weather data:", error);
-                });
-        }
-    </script>
+        
     
 
         
-</div>
 </body>
 </html>
